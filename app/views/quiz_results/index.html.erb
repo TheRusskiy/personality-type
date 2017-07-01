@@ -1,3 +1,12 @@
+<div style="height: 60px"></div>
+<div class="pull-right" style="margin-right: 100px;" ng-controller="QuizResultsCtrl">
+  <a href style="font-size: 50px;"
+     uib-tooltip="Прочесть про типы личности"
+     ng-click="openHints()"
+  >
+    <i class="fa fa-info-circle"></i>
+  </a>
+</div>
 <div class="container" ng-controller="QuizResultsCtrl">
   <div class="col-md-12" ng-init="setUsers(<%= @users.map(&:in_json).to_json %>)">
     Пользователи
@@ -22,6 +31,12 @@
             </span>
           <span ng-if="user.quiz_result">
             <span ng-bind="user.quiz_result.personality_type"></span>
+            <a href
+               uib-tooltip="Подробности"
+               ng-click="explainResult(user.quiz_result)"
+            >
+              <i class="fa fa-info-circle"></i>
+            </a>
           </span>
         </td>
       </tr>
