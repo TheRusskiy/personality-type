@@ -5,7 +5,11 @@ angular.module('psycho').controller 'QuizResultsCtrl', ($scope, $http, blockUI, 
   $scope.search = { }
   $scope.setUsers = (newUsers)->
     $scope.users = newUsers
-
+    $scope.regions = _.uniq(_.map(newUsers, 'region'))
+    $scope.job_titles = _.uniq(_.map(newUsers, 'job_title'))
+    $scope.departments = _.uniq(_.map(newUsers, 'department'))
+    $scope.job_titles = _.uniq(_.map(newUsers, 'job_title'))
+    
   $scope.requestResult = (user)->
     blockUI.start()
     $http.post('/quiz_requests', {

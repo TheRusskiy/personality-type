@@ -10,6 +10,39 @@
 <div class="container" ng-controller="QuizResultsCtrl">
   <div class="col-md-12" ng-init="setUsers(<%= @users.map(&:in_json).to_json %>)">
     <h2>Сотрудники</h2>
+    <div class="row">
+      <div class="col-md-12 search-fields">
+        <ui-select ng-model="search.region"
+                   style="width: 200px;"
+                   search-enabled="false"
+                   title="Регион">
+          <ui-select-match placeholder="Регион">{{$select.selected}}</ui-select-match>
+          <ui-select-choices repeat="region in regions track by $index">
+            <div ng-bind-html="region"></div>
+          </ui-select-choices>
+        </ui-select>
+
+        <ui-select ng-model="search.department"
+                   style="width: 200px;"
+                   search-enabled="false"
+                   title="Отдел">
+          <ui-select-match placeholder="Отдел">{{$select.selected}}</ui-select-match>
+          <ui-select-choices repeat="department in departments track by $index">
+            <div ng-bind-html="department"></div>
+          </ui-select-choices>
+        </ui-select>
+
+        <ui-select ng-model="search.job_title"
+                   style="width: 200px;"
+                   search-enabled="false"
+                   title="Должность">
+          <ui-select-match placeholder="Должность">{{$select.selected}}</ui-select-match>
+          <ui-select-choices repeat="job_title in job_titles track by $index">
+            <div ng-bind-html="job_title"></div>
+          </ui-select-choices>
+        </ui-select>
+      </div>
+    </div>
     <table class="table table-bordered">
       <thead>
       <tr>
