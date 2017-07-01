@@ -1,8 +1,8 @@
-<div class="container" ng-controller="NewQuizCtrl">
+<div class="container new-quiz" ng-controller="NewQuizCtrl">
   <div class="jumbotron">
     <span ng-init="setUserId(<%= @user.id %>)"></span>
     <h1>Привет, <%= @user.name %></h1>
-    <a href class="btn btn-primary" ng-show="showStart" ng-click="startTest()">
+    <a href class="btn btn-primary btn-lg" ng-show="showStart" ng-click="startTest()">
       Начать Тест
     </a>
   </div>
@@ -16,16 +16,25 @@
     </div>
   </div>
   <div class="row" ng-show="showSubmit">
-    <div class="col-md-12">
-      <input type="text" class="form-control" ng-model="personality_type">
+    <div class="col-md-12 input-type-wrapper">
+      <ui-select ng-model="res.personality_type"
+                 style="width: 200px;"
+                 search-enabled="false"
+                 title="Результат">
+        <ui-select-match placeholder="Введите результат">{{$select.selected}}</ui-select-match>
+        <ui-select-choices repeat="type in personality_types track by $index">
+          <div ng-bind-html="type"></div>
+        </ui-select-choices>
+      </ui-select>
+
       <a href class="btn btn-primary"
-         ng-click="submitResult()" ng-disabled="!personality_type">Отправить</a>
+         ng-click="submitResult()" ng-disabled="!res.personality_type">Отправить</a>
     </div>
   </div>
 
   <div class="row" ng-show="showSuccess">
     <div class="col-md-12">
-      Молодец!
+      <h1>Спасибо, с вами свяжутся!</h1>
     </div>
   </div>
 

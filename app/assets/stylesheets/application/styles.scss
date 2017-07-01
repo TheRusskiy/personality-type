@@ -6,3 +6,17 @@
 .search-fields > div {
   display: inline-block;
 }
+
+.new-quiz {
+  text-align: center;
+  .btn-primary {
+    margin: 20px;
+  }
+
+  .input-type-wrapper > div {
+    margin-top: 50px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
