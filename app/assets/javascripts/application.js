@@ -29,6 +29,14 @@
 //= require curved-line-chart
 //= require line-chart
 //= require pie-chart
+//= require 'lodash/lodash.js'
+//= require 'angular/angular.js'
+//= require 'angular-block-ui/dist/angular-block-ui.js'
+//= require 'ui-select/dist/select.js'
+//= require 'angular-sanitize/angular-sanitize.js'
+//= require 'angular-ui-bootstrap/dist/ui-bootstrap-tpls.js'
+//= require 'sweetalert2/dist/sweetalert2.js'
+//= require 'checklist-model/checklist-model.js'
 //= require_tree ./application
 
 $(document).ready(function() {

@@ -7,5 +7,9 @@ Rails.application.routes.draw do
     get '/auth/:provider/callback', to: 'authentications#create'
   end
 
+  resources :quiz_results do
+
+  end
+
   get 'static/:page' => 'static#show'
 end

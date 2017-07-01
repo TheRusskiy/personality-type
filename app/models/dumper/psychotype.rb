@@ -1,4 +1,4 @@
-module Dumper::Customer
+module Dumper
   class Psyschotype < ::Dumper::Base
 
     def details

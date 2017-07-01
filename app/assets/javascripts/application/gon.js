@@ -1,5 +1,5 @@
 'use strict';
 
-angular.module("customer").factory('gon', ['$window', function gon($window) {
+angular.module("psycho").factory('gon', ['$window', function gon($window) {
     return $window.gon;
   }]);

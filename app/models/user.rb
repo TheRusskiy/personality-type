@@ -3,11 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :rememberable, :trackable, :validatable
          
-  has_many :restaurants, foreign_key: :submitter_id
+  has_many :quiz_results
   has_many :identities
   
-  validates :email, uniqueness: { scope: :type }
-  
+  validates_uniqueness_of :email
+
   def self.create_with_omniauth(auth)
     case auth.provider
     when 'twitter'

@@ -1,0 +1,34 @@
+<div class="container" ng-controller="NewQuizCtrl">
+  <div class="jumbotron">
+    <span ng-init="setUserId(<%= @user.id %>)"></span>
+    <h1>Привет, <%= @user.name %></h1>
+    <a href class="btn btn-primary" ng-show="showStart" ng-click="startTest()">
+      Начать Тест
+    </a>
+  </div>
+
+  <div class="row" ng-show="showTest">
+    <div class="col-md-12">
+      <iframe
+        src="https://www.16personalities.com/ru/test-lichnosti"
+        style="width: 800px; height: 600px"
+      ></iframe>
+    </div>
+  </div>
+  <div class="row" ng-show="showSubmit">
+    <div class="col-md-12">
+      <input type="text" class="form-control" ng-model="personality_type">
+      <a href class="btn btn-primary"
+         ng-click="submitResult()" ng-disabled="!personality_type">Отправить</a>
+    </div>
+  </div>
+
+  <div class="row" ng-show="showSuccess">
+    <div class="col-md-12">
+      Молодец!
+    </div>
+  </div>
+
+
+
+</div> <!-- /container -->

@@ -1,4 +1,4 @@
-class RootController < ActionController::Base
+class RootController < ApplicationController
   protect_from_forgery with: :exception
 
   layout 'application'
