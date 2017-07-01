@@ -44,6 +44,9 @@ class User < ApplicationRecord
       id: id,
       name: name,
       quiz_result: quiz_results.last&.in_json,
+      job_title: job_title,
+      department: department,
+      region: region,
       quiz_request: quiz_requests.last&.in_json,
     }
   end

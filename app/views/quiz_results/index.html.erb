@@ -9,17 +9,23 @@
 </div>
 <div class="container" ng-controller="QuizResultsCtrl">
   <div class="col-md-12" ng-init="setUsers(<%= @users.map(&:in_json).to_json %>)">
-    Пользователи
+    <h2>Сотрудники</h2>
     <table class="table table-bordered">
       <thead>
       <tr>
         <td>Имя</td>
+        <td>Регион</td>
+        <td>Отдел</td>
+        <td>Должность</td>
         <td>Результаты Теста</td>
       </tr>
       </thead>
       <tbody>
-      <tr ng-repeat="user in users">
+      <tr ng-repeat="user in users | filter:search">
         <td>{{user.name}}</td>
+        <td>{{user.region}}</td>
+        <td>{{user.department}}</td>
+        <td>{{user.job_title}}</td>
         <td>
             <span ng-if="user.quiz_request && !user.quiz_result">
               Запрос отправлен

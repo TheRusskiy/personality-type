@@ -1,13 +1,18 @@
 class Creator
   def self.create
     User.destroy_all
-    i = 1
     50.times do |i|
       first_name, last_name = Faker::Name.unique.name.split(' ')
+      department = %w(Бухгалтерия Менеджмент Информационный).sample
+      region = %w(Москва Санкт-Петербург Самара Киров).sample
+      job_title = %w(Начальник Менеджер-Среднего-Звена Пешка).sample
       User.create!(
         first_name: first_name,
         last_name: last_name,
-        password: 'passowrd',
+        password: 'password',
+        department: department,
+        region: region,
+        job_title: job_title,
         email: Faker::Internet.unique.email,
       )
     end

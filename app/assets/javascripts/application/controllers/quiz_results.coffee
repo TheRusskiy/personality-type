@@ -2,6 +2,7 @@ angular.module('psycho').controller 'QuizResultsCtrl', ($scope, $http, blockUI, 
 
   $scope.users = []
 
+  $scope.search = { }
   $scope.setUsers = (newUsers)->
     $scope.users = newUsers
 
