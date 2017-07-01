@@ -1,0 +1,31 @@
+<div class="container" ng-controller="QuizResultsCtrl">
+  <div class="col-md-12" ng-init="setUsers(<%= @users.map(&:in_json).to_json %>)">
+    Пользователи
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <td>Имя</td>
+        <td>Результаты Теста</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="user in users">
+        <td>{{user.name}}</td>
+        <td>
+            <span ng-if="user.quiz_request && !user.quiz_result">
+              Запрос отправлен
+            </span>
+            <span ng-if="!user.quiz_result && !user.quiz_request">
+              <a href ng-click="requestResult(user)">
+                Отправить Тест
+              </a>
+            </span>
+          <span ng-if="user.quiz_result">
+            <span ng-bind="user.quiz_result.personality_type"></span>
+          </span>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

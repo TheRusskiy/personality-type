@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :rememberable, :trackable, :validatable
          
   has_many :quiz_results
+  has_many :quiz_requests
   has_many :identities
   
   validates_uniqueness_of :email
@@ -36,5 +37,14 @@ class User < ApplicationRecord
 
   def email_changed?
     false
+  end
+
+  def in_json
+    {
+      id: id,
+      name: name,
+      quiz_result: quiz_results.last&.in_json,
+      quiz_request: quiz_requests.last&.in_json,
+    }
   end
 end

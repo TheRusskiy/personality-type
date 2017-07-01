@@ -3,6 +3,7 @@ class QuizResultsController < ApplicationController
 
   layout 'application'
   def index
+    @users = User.all
   end
 
   def new

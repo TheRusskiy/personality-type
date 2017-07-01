@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   resources :quiz_results do
 
   end
+  resources :quiz_requests do
+
+  end
 
   get 'static/:page' => 'static#show'
 end
