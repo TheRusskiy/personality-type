@@ -41,6 +41,12 @@
             <div ng-bind-html="job_title"></div>
           </ui-select-choices>
         </ui-select>
+        <ui-select multiple ng-model="tgs.selectedTags" close-on-select="false" style="width: 400px;" title="Характеристики">
+          <ui-select-match placeholder="Характеристики">{{$item}}</ui-select-match>
+          <ui-select-choices repeat="tag in allTags | filter:$select.search">
+            {{tag}}
+          </ui-select-choices>
+        </ui-select>
       </div>
     </div>
     <table class="table table-bordered">
@@ -54,7 +60,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr ng-repeat="user in users | filter:search">
+      <tr ng-repeat="user in tagFilter(users) | filter:search">
         <td>{{user.name}}</td>
         <td>{{user.region}}</td>
         <td>{{user.department}}</td>
