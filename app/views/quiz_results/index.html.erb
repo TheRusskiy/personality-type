@@ -12,6 +12,7 @@
     <h2>Сотрудники</h2>
     <div class="row">
       <div class="col-md-12 search-fields">
+        <input type="text" class="form-control" ng-model="search.name" style="width: 120px; display: inline-block" placeholder="Имя">
         <ui-select ng-model="search.region"
                    style="width: 200px;"
                    search-enabled="false"
@@ -41,7 +42,7 @@
             <div ng-bind-html="job_title"></div>
           </ui-select-choices>
         </ui-select>
-        <ui-select multiple ng-model="tgs.selectedTags" close-on-select="false" style="width: 400px;" title="Характеристики">
+        <ui-select multiple ng-model="tgs.selectedTags" close-on-select="false" style="width: 300px;" title="Характеристики">
           <ui-select-match placeholder="Характеристики">{{$item}}</ui-select-match>
           <ui-select-choices repeat="tag in allTags | filter:$select.search">
             {{tag}}

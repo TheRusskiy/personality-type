@@ -1,7 +1,10 @@
 <div class="container new-quiz" ng-controller="NewQuizCtrl">
   <div class="jumbotron">
     <span ng-init="setUserId(<%= @user.id %>)"></span>
-    <h1>Привет, <%= @user.name %></h1>
+    <h1 ng-click="showFakeResult = true">Добрый день, <%= @user.name %></h1>
+    <p>
+      Предлагаем вашему вниманию тест для определения сильных и слабых сторон вашей личности. После прохождения теста вы узнатее о себе, а ваше руководство может использовать лучшие ваши качества в работе.
+    </p>
     <a href class="btn btn-primary btn-lg" ng-show="showStart" ng-click="startTest()">
       Начать Тест
     </a>
@@ -10,9 +13,11 @@
   <div class="row" ng-show="showTest">
     <div class="col-md-12">
       <iframe
+        ng-hide="showFakeResult"
         src="https://www.16personalities.com/ru/test-lichnosti"
         style="width: 800px; height: 600px"
       ></iframe>
+      <img src="/fake_result.png" ng-show="showFakeResult">
     </div>
   </div>
   <div class="row" ng-show="showSubmit">

@@ -5,8 +5,8 @@ class Creator
       first_name, last_name = Faker::Name.unique.name.split(' ')
       department = %w(Бухгалтерия Менеджмент Информационный).sample
       region = %w(Москва Санкт-Петербург Самара Киров).sample
-      job_title = %w(Начальник Менеджер-Среднего-Звена Пешка).sample
-      User.create!(
+      job_title = %w(Начальник Менеджер Маркетолог ИТ-Специалист).sample
+      new_user = User.create!(
         first_name: first_name,
         last_name: last_name,
         password: 'password',
@@ -15,6 +15,10 @@ class Creator
         job_title: job_title,
         email: Faker::Internet.unique.email,
       )
+      types = ["INTJ", "INTP", "ENTJ", "ENTP", "INFJ", "INFP", "ENFP", "ISTJ", "ISFJ", "ESTJ", "ESFJ", "ISTP", "ISFP", "ESTP", "ESFP"]
+      if rand > 0.5
+        new_user.quiz_results.create(personality_type: types.sample)
+      end
     end
     # User.create!(
     #   first_name: 'Антон',

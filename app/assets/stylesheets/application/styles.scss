@@ -7,6 +7,10 @@
   display: inline-block;
 }
 
+.search-fields > input {
+  vertical-align: bottom;
+}
+
 .new-quiz {
   text-align: center;
   .btn-primary {
