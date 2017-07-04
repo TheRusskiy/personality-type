@@ -22,8 +22,6 @@ module Psycho
     require 'payment_error'
 
 
-    config.action_cable.mount_path = '/cable'
-
     config.lograge.enabled = true
     config.lograge.custom_options = lambda do |event|
       stacktrace = {}
